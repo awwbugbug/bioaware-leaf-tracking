@@ -1,0 +1,43 @@
+seed: 42
+
+# Data
+train_root: "/root/autodl-tmp/LeafTrackNet-main/datasets/CanolaTrack/CanolaTrack/train"
+image_ext: ".jpg"
+image_size: 1200        # used for spatial normalisation in V4
+
+# Model
+backbone: "mobilenet_v3"
+embed_dim: 128
+
+# Training
+batch_size: 48
+epochs: 80
+lr: 1.0e-4
+weight_decay: 1.0e-5
+num_workers: 8
+save_period: 20
+amp: true
+
+# Triplet strategy
+triplet_strategy: "v4"        # growth-aware hard negative mining
+dataset_length: 10000         # virtual epoch size
+
+# V4-specific: biological similarity temperatures
+# Higher gamma → stronger preference for biologically hard negatives
+gamma_area: 2.0               # area similarity temperature
+gamma_spatial: 2.0            # spatial proximity temperature
+
+# V3-specific (unused for v4, kept for reference)
+window_size: 20
+
+# Checkpoints / output
+output_dir: "outputs/leaf_reid_v4"
+
+# Inference / tracking (used by infer.py and run_bio.py)
+threshold: 0.4
+max_age: 5
+update_mode: "mean"
+alpha: 0.5
+
+proposals_json: "/root/autodl-tmp/LeafTrackNet-main/datasets/CanolaTrack/proposals/det_db_val.json"
+image_root: "/root/autodl-tmp/LeafTrackNet-main/datasets/CanolaTrack/CanolaTrack/val"

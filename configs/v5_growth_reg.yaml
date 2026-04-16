@@ -1,0 +1,40 @@
+seed: 42
+
+# Data
+train_root: "/root/autodl-tmp/LeafTrackNet-main/datasets/CanolaTrack/CanolaTrack/train"
+image_ext: ".jpg"
+
+# Model
+backbone: "mobilenet_v3"
+embed_dim: 128
+
+# Training
+batch_size: 48
+epochs: 80
+lr: 1.0e-4
+weight_decay: 1.0e-5
+num_workers: 8
+save_period: 20
+amp: true
+
+# Triplet strategy
+triplet_strategy: "v5"
+dataset_length: 10000
+
+# Growth-consistency regularization (Option B)
+# L_total = L_triplet + alpha_growth * L_growth
+# L_growth = mean(max(0, g_ap * ||ea - ep||_2 - epsilon_growth))
+# where g_ap = (A_p - A_a) / (A_a + delta)
+alpha_growth:   0.5   # weight of L_growth term
+epsilon_growth: 0.3   # slack margin (same as triplet margin)
+
+# Checkpoints / output
+output_dir: "outputs/v5_growth_reg_alpha0.5"
+
+# Inference / tracking (unchanged)
+threshold: 0.4
+max_age: 5
+update_mode: "mean"
+alpha: 0.5
+proposals_json: "/root/autodl-tmp/LeafTrackNet-main/datasets/CanolaTrack/proposals/det_db_val.json"
+image_root: "/root/autodl-tmp/LeafTrackNet-main/datasets/CanolaTrack/CanolaTrack/val"

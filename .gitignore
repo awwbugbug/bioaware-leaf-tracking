@@ -1,0 +1,63 @@
+# ---------------------------------------------------------------
+# Data (too large for git - use HuggingFace link instead)
+# ---------------------------------------------------------------
+datasets/CanolaTrack/CanolaTrack/
+datasets/CanolaTrack/proposals/
+hf_cache/
+
+# ---------------------------------------------------------------
+# Model weights (upload separately if needed)
+# ---------------------------------------------------------------
+datasets/CanolaTrack/weights/
+outputs/leaf_reid_v4/
+outputs/v5_*/
+outputs/wp_seed*/
+outputs/weight_predictor*/
+
+# ---------------------------------------------------------------
+# Tracking outputs (reproducible from scripts)
+# ---------------------------------------------------------------
+outputs/baseline*/
+outputs/bio*/
+outputs/ablation/
+outputs/centroid/
+outputs/iou/
+outputs/deepsort/
+outputs/bytetrack/
+outputs/botsort/
+outputs/ours/
+outputs/v4_*/
+
+# ---------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+*.so
+
+# ---------------------------------------------------------------
+# Logs and temp
+# ---------------------------------------------------------------
+logs/
+*.log
+results/
+*.tmp
+
+# ---------------------------------------------------------------
+# TrackEval (submodule / external dependency)
+# ---------------------------------------------------------------
+TrackEval/
+
+# ---------------------------------------------------------------
+# System
+# ---------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
